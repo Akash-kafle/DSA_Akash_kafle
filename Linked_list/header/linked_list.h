@@ -15,7 +15,7 @@ class Linked_list{
     Node *Head= nullptr;
     Node *Tail= nullptr;
     public:
-    bool add(int data);
+    bool add(int index,int data);
     bool addToHead(int data);
     bool addToTail(int data);
 

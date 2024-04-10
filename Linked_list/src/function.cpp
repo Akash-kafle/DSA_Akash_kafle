@@ -1,12 +1,13 @@
 #include "header/linked_list.h"
 
-bool Linked_list::add(int data){
+bool Linked_list::add(int index,int data){
 
 }
 
 bool Linked_list::addToHead(int data){
-    Node * temp = new Node;
+    
     if(this->IsEmpty()){
+        Node * temp = new Node;
         temp->data = data;
         temp->next = nullptr;
         Head = temp;
@@ -15,8 +16,9 @@ bool Linked_list::addToHead(int data){
         return true;
     }
     else{
+        Node * temp = new Node;
         temp->data = data;
-        temp->next = Head->next;
+        temp->next = Head;
         Head = temp;
         std::cout<<"Sucess"<<std::endl;
         return true;
@@ -25,8 +27,8 @@ bool Linked_list::addToHead(int data){
 }
 
 bool Linked_list::addToTail(int data){
-    Node * temp = new Node;
     if(this->IsEmpty()){
+        Node * temp = new Node;
         temp->data = data;
         temp->next = nullptr;
         Head = temp;
@@ -35,6 +37,7 @@ bool Linked_list::addToTail(int data){
         return true;
     }
     else{
+        Node * temp = new Node;
         temp->data = data;
         temp->next = nullptr;
         Tail->next = temp ;
@@ -50,11 +53,24 @@ bool Linked_list::remove(int data){
 }
 
 bool Linked_list::removeFromHead(int &data){
-
+    Node * temp = Head;
+    Head =  Head->next;
+    data = temp->data;
+    try{
+   delete temp;
+   }catch(std::exception &e){
+    std::cout<<e.what()<<std::endl;
+    return false;
+   } 
+   return true; 
 }
 
 bool Linked_list::removeFromTail(int &data){
+    Node * temp = Head;
+    data = Tail->data;
+    while(temp->next!=nullptr){
 
+    }    
 }
 
 bool Linked_list::IsEmpty(){
@@ -63,7 +79,7 @@ bool Linked_list::IsEmpty(){
 
 void Linked_list::print(){
     Node *temp = this->Head;
-    while(temp->next!=nullptr){
+    while(temp!=nullptr){
         std::cout<<"data : "<<temp->data<<std::endl;
         temp = temp->next;
     }
