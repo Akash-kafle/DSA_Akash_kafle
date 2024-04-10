@@ -12,7 +12,8 @@ class Node{
 };
 
 class Linked_list{
-    Node a;
+    Node *Head= nullptr;
+    Node *Tail= nullptr;
     public:
     bool add(int data);
     bool addToHead(int data);
@@ -21,4 +22,8 @@ class Linked_list{
     bool remove(int data);
     bool removeFromHead(int &data);
     bool removeFromTail(int &data);
+
+    bool IsEmpty();
+
+    void print();
 };
