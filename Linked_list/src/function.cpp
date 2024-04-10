@@ -69,8 +69,18 @@ bool Linked_list::removeFromTail(int &data){
     Node * temp = Head;
     data = Tail->data;
     while(temp->next!=nullptr){
-
-    }    
+        temp = temp -> next;
+    }
+    temp->next = nullptr;
+    try{
+        delete Tail;
+    }
+    catch(std::exception &e){
+    std::cout<<e.what()<<std::endl;
+    return false;
+   }
+   Tail = temp;
+   return true;
 }
 
 bool Linked_list::IsEmpty(){
