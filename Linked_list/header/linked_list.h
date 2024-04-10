@@ -1,21 +1,24 @@
-#pragma once 
+#pragma once
 #include <iostream>
 
-class Node{
-    public:
+class Node
+{
+public:
     int data;
-    Node* next;
+    Node *next;
 
-    Node(){}
-    Node(int a):data(a),next(NULL){}
-    Node(int a , Node * next_):data(a),next(next_){}
+    Node() {}
+    Node(int a) : data(a), next(NULL) {}
+    Node(int a, Node *next_) : data(a), next(next_) {}
 };
 
-class Linked_list{
-    Node *Head= nullptr;
-    Node *Tail= nullptr;
-    public:
-    bool add(int index,int data);
+class Linked_list
+{
+    Node *Head = nullptr;
+    Node *Tail = nullptr;
+
+public:
+    bool add(int index, int data);
     bool addToHead(int data);
     bool addToTail(int data);
 
@@ -26,4 +29,6 @@ class Linked_list{
     bool IsEmpty();
 
     void print();
+
+    ~Linked_list();
 };
