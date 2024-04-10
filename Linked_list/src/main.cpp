@@ -3,18 +3,33 @@
 int main()
 {
     int data{};
+    int num{};
     Linked_list List;
-    List.addToHead(1);
-    for (int i = 2; i < 10; i++)
+
+    do
+    {
+        std::cout << "Enter number of node to create: ";
+        std::cin >> num;
+
+        if (!std::cin.fail())
+        {
+            break;
+        }
+        else if (num < 0)
+        {
+            std::cout << "Please enter a positive number" << std::endl;
+        }
+        std::cin.clear();
+        std::cin.ignore(1000, '\n');
+    } while (true);
+    for (int i = 1; i <= num; i++)
     {
         List.addToTail(i);
     }
     List.print();
 
-    List.remove(5);
-
     List.removeFromHead(data);
-    std::cout << "Data: " << data << std::endl;
+    std::cout << "data : " << data << std::endl;
     List.print();
     List.~Linked_list();
     List.print();
