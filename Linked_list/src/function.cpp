@@ -1,4 +1,5 @@
 #include "..\header\linked_list.h"
+#include "linked_list.h"
 
 // this is a simple implementation of a basic linked list
 
@@ -192,6 +193,43 @@ bool Linked_list::IsEmpty()
     return (Head == nullptr && Tail == nullptr); // Checking if both head and tail are nullptr and returning the result of the comparison
 }
 
+// this function searches for the node with the provided data
+
+bool Linked_list::search(int data)
+{
+    // Traversing the list to search for the node with the provided data
+    Node *temp = Head;
+    while (temp != nullptr)
+    {
+        if (temp->data == data)
+        {
+            return true; // Node with the provided data found
+        }
+        temp = temp->next; // Moving to the next node
+    }
+    return false; // Node with the provided data not found
+}
+
+// this function retrieves the pointer to the node with the provided data
+
+void Linked_list::retrive(int &data, Node *&OutPointer)
+{
+    if (!this->IsEmpty()) // Checking if list is not empty
+    {
+        Node *temp = Head;                            // Storing the current head
+        while (temp != nullptr && temp->data != data) // Searching for the node with the provided data
+        {
+            temp = temp->next; // Moving to the next node
+        }
+        if (nullptr != temp) // Checking if the node with the provided data is found
+        {
+            OutPointer = temp; // Storing the pointer to the node with the provided data
+            return;            // Returning after finding the node
+        }
+    }
+    OutPointer = nullptr; // Setting the pointer to nullptr if the node with the provided data is not found
+}
+
 // this function prints the data of each node in the linked list
 void Linked_list::print()
 {
@@ -217,5 +255,5 @@ Linked_list::~Linked_list()
         return;
     }
     this->removeFromHead(data); // Removing nodes from head until the list becomes empty
-    this->~Linked_list();             // Calling the destructor recursively
+    this->~Linked_list();       // Calling the destructor recursively
 }

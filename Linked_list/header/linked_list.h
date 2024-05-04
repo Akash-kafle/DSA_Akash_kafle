@@ -27,6 +27,9 @@ public:
     bool removeFromTail(int &data);
 
     bool IsEmpty();
+    bool search(int);
+
+    void retrive(int &, Node *&);
 
     void print();
 
