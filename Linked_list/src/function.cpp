@@ -1,5 +1,4 @@
 #include "..\header\linked_list.h"
-#include "linked_list.h"
 
 // this is a simple implementation of a basic linked list
 
