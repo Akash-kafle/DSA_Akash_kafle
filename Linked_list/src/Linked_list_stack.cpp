@@ -1,7 +1,7 @@
 #include "../header/Linked_list_stack.h"
 #include "../header/Stack.h"
 #include <iostream>
-
+#include "Linked_list_stack.h"
 
 void LinkedStack::push(int data)
 {
@@ -10,7 +10,8 @@ void LinkedStack::push(int data)
 
 int LinkedStack::pop()
 {
-    if(!stack.IsEmpty()){
+    if (!stack.IsEmpty())
+    {
         int data{};
         stack.removeFromHead(data);
         return data;
@@ -18,10 +19,11 @@ int LinkedStack::pop()
     throw "Empty";
 }
 
-int LinkedStack::top()
+int LinkedStack::Top()
 {
-    if(!stack.IsEmpty()){
-        Node* Head = stack.getHead();
+    if (!stack.IsEmpty())
+    {
+        Node *Head = stack.getHead();
         return Head->data;
     }
     throw "Empty";
@@ -31,7 +33,13 @@ bool LinkedStack::IsEmpty()
 {
     return stack.IsEmpty();
 }
+
 void LinkedStack::clear()
 {
     stack.~Linked_list();
+}
+
+void LinkedStack::print()
+{
+    stack.print();
 }

@@ -1,10 +1,9 @@
-#include "../header/linked_list.h"
-#include "../header/Linked_list_stack.h"
+#include "../header/ArrayStack.h"
 
 int main()
 {
-    int user_input{};
-    LinkedStack stack;
+    ArrayStack stack;
+    int user_input;
     do
     {
         std::cout << "Enter number of data: ";
@@ -36,9 +35,13 @@ int main()
     }
     std::cout << "\nPrinting the stack: " << std::endl;
     stack.print();
+
     std::cout << "\nPeeking top: " << stack.Top();
     std::cout << "\nRemoving top: " << stack.pop();
     std::cout << "\nTop after removal: " << stack.Top();
+    std::cout << "\nPrinting the stack after removing top: " << std::endl;
+    stack.print();
+
     stack.clear();
 
     std::cout << "\nPrinting the stack after clearing all data: " << std::endl;

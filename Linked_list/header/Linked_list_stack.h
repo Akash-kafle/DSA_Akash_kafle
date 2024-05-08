@@ -1,14 +1,16 @@
 #pragma once
 #include "Stack.h"
 
-class LinkedStack: protected Stack{
-    protected:
+class LinkedStack : protected Stack
+{
+protected:
     Linked_list stack;
-    
-    public:
+
+public:
     void push(int);
     int pop();
-    int top();
+    int Top();
     bool IsEmpty();
     void clear();
+    void print();
 };
