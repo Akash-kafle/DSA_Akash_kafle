@@ -4,8 +4,22 @@
 int main(){
     int user_input{};
     LinkedStack stack;
-    std::cout<<"Enter total input: ";
-    std::cin >> user_input;
+    do
+    {
+        std::cout << "Enter number of data: ";
+        std::cin >> user_input;
+
+        if (!std::cin.fail())
+        {
+            break;
+        }
+        else if (user_input < 0)
+        {
+            std::cout << "Please enter a positive number" << std::endl;
+        }
+        std::cin.clear();
+        std::cin.ignore(1000, '\n');
+    } while (true);
     try{
     std::cout<<"Popping an empty stack"<<std::endl;
     std::cout<<stack.pop()<<std::endl;}
