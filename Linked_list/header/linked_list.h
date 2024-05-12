@@ -18,7 +18,6 @@ class Linked_list
     Node *Tail = nullptr;
 
 public:
-    
     bool add(int index, int data);
     bool addToHead(int data);
     bool addToTail(int data);
@@ -33,8 +32,13 @@ public:
     void retrive(int &, Node *&);
 
     void print();
-    Node* getHead(){
+    Node *getHead()
+    {
         return Head;
+    }
+    Node *getTail()
+    {
+        return Tail;
     }
     ~Linked_list();
 };
